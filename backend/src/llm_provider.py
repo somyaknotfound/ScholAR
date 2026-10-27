@@ -18,7 +18,7 @@ Environment variables:
   GEMINI_MODEL=gemini-3.5-flash
   GEMINI_THINKING_LEVEL=low
   GROQ_API_KEY=<set in .env or terminal>
-  GROQ_MODEL=llama-3.3-70b-versatile
+  GROQ_MODEL=openai/gpt-oss-120b
 """
 
 from __future__ import annotations
@@ -35,7 +35,7 @@ DEFAULT_PRIMARY_PROVIDER = "gemini"
 DEFAULT_FALLBACK_PROVIDER = "groq"
 DEFAULT_GEMINI_MODEL = "gemini-3.5-flash"
 DEFAULT_GEMINI_THINKING_LEVEL = "low"
-DEFAULT_GROQ_MODEL = "llama-3.3-70b-versatile"
+DEFAULT_GROQ_MODEL = "openai/gpt-oss-120b"
 DEFAULT_LLM_TIMEOUT_SECONDS = 60
 
 
