@@ -21,8 +21,11 @@ Run:
 """
 
 import argparse
+import json
 import sys
 
+from bm25_index import records_from_chroma
+from embed_index import get_chroma_collection
 from search import search_chunks
 
 DEFAULT_TOP_K = 5
@@ -99,6 +102,13 @@ def _matches_expected(result: dict, case: dict) -> bool:
     metadata = result["metadata"]
     document = result.get("document") or ""
 
+    source_any = case.get("expected_source_any")
+    if source_any and not any(
+        _contains_case_insensitive(metadata.get("source_file"), source)
+        for source in source_any
+    ):
+        return False
+
     return (
         _contains_case_insensitive(
             metadata.get("source_file"),
@@ -114,6 +124,21 @@ def _matches_expected(result: dict, case: dict) -> bool:
         )
         and _page_overlap(metadata, case.get("expected_pages"))
     )
+
+
+def _answerable_cases(cases: list[dict]) -> list[dict]:
+    """
+    Drop cases whose label matches no indexed chunk, so a mislabelled case or
+    an unindexed document cannot count as a retrieval miss.
+    """
+    records = records_from_chroma(get_chroma_collection())
+    kept = []
+    for case in cases:
+        if any(_matches_expected(record, case) for record in records):
+            kept.append(case)
+        else:
+            print(f"SKIP (no indexed chunk matches the label): {case['name']}")
+    return kept
 
 
 def _first_relevant_rank(results: list[dict], case: dict) -> int | None:
@@ -243,14 +268,24 @@ def main() -> None:
         action="store_true",
         help="Exit with code 1 if any selected mode misses any query in top-k.",
     )
+    parser.add_argument(
+        "--cases",
+        help="JSON file of gold cases to use instead of the built-in EVAL_CASES.",
+    )
     args = parser.parse_args()
+
+    cases = EVAL_CASES
+    if args.cases:
+        with open(args.cases, encoding="utf-8") as file:
+            cases = json.load(file)
+        cases = _answerable_cases(cases)
 
     cutoffs = [k for k in RECALL_CUTOFFS if k <= args.top_k]
     if args.top_k not in cutoffs:
         cutoffs.append(args.top_k)
 
     print(
-        f"Running {len(EVAL_CASES)} gold query case(s), "
+        f"Running {len(cases)} gold query case(s), "
         f"top_k={args.top_k}, modes={', '.join(args.modes)}"
     )
 
@@ -258,7 +293,7 @@ def main() -> None:
     for mode in args.modes:
         all_results[mode] = [
             evaluate_case(case, top_k=args.top_k, mode=mode)
-            for case in EVAL_CASES
+            for case in cases
         ]
 
     print_summary(all_results, cutoffs)

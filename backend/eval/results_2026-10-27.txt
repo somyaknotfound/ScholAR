@@ -1,0 +1,254 @@
+# Retrieval eval, 2026-10-27
+# Index: 3,891 chunks (46 course PDFs from 5thSem/corpus incl. 16 OCR'd Compiler Design decks, + Deadlocks/InstantDrag/test PDF)
+# Command: python backend/src/evaluate_retrieval.py --cases backend/eval/course_cases.json --show-details
+# Hit = top-k chunk from an expected source file that contains expected_text_contains.
+Running 36 gold query case(s), top_k=5, modes=vector, hybrid, hybrid_mmr
+
+Retrieval Evaluation Summary
+------------------------------------------------------------------------
+Mode       Queries   Recall@1   Recall@3   Recall@5        MRR
+------------------------------------------------------------------------
+vector          36      72.2%      86.1%      91.7%      0.795
+hybrid          36      80.6%      91.7%      97.2%      0.864
+hybrid_mmr      36      80.6%      94.4%     100.0%      0.883
+
+Detailed Results
+------------------------------------------------------------------------
+
+Mode: vector
+PASS | Four packet delays | rank #1
+       query: what delays does a packet face on each hop of a path
+PASS | Window to fill the pipe | rank #1
+       query: how large must the sender window be to keep the link busy
+PASS | GBN vs SR with a loss | rank #1
+       query: go back n versus selective repeat when one frame is lost
+PASS | UDP header | rank #3
+       query: what fields are in the udp header
+PASS | TCP congestion control | rank #1
+       query: how does tcp grow its window during slow start
+PASS | SCTP | rank #1
+       query: what does sctp add over tcp, like multihoming
+PASS | AODV route discovery | rank #1
+       query: how does aodv find a route using route requests
+PASS | DSDV | rank #1
+       query: proactive distance vector routing for mobile ad hoc networks
+PASS | Bellman-Ford in DV | rank #2
+       query: which equation do distance vector routers use to update costs
+PASS | OSPF hierarchy | rank #3
+       query: why does ospf split the network into areas
+FAIL | Count to infinity | not found
+       query: routing loops where costs keep increasing in distance vector
+       top results:
+         #1 01_CN-MidSem-Problem-Set.pdf pages 15-15 | **G3. A distance-vector update arriving at a router [7]** | score=0.469
+         #2 01_CN-MidSem-Problem-Set.pdf pages 40-40 | **G3 solution** | score=0.407
+         #3 01_CN-MidSem-Problem-Set.pdf pages 14-14 | **G1. Dijkstra, traced [10]** | score=0.374
+PASS | ICMP | rank #4
+       query: what is icmp used for
+PASS | BGP inter-AS | rank #1
+       query: how do autonomous systems exchange reachability with bgp
+PASS | Similarity caching | rank #1
+       query: serving approximate matches from caches across a network
+PASS | Token pattern lexeme | rank #1
+       query: difference between a token, a pattern and a lexeme
+PASS | Input buffering | rank #1
+       query: why does the lexer use sentinels at the end of buffers
+PASS | Bootstrapping | rank #1
+       query: building a compiler for a new machine with t diagrams
+PASS | Compiler vs interpreter | rank #1
+       query: how is a compiler different from an interpreter
+PASS | Passes vs phases | rank #1
+       query: what is the difference between a pass and a phase of compilation
+PASS | FA cannot count | rank #1
+       query: why can a finite automaton not count
+PASS | Left recursion | rank #1
+       query: how to remove left recursion from a grammar
+PASS | FIRST and FOLLOW | rank #1
+       query: computing first and follow sets for an ll(1) parser
+PASS | Regular definitions | rank #1
+       query: write regular definitions for identifiers and numbers
+PASS | Para vs full virtualization | rank #1
+       query: para virtualization compared with full virtualization
+PASS | Privileged instructions | rank #1
+       query: how are privileged instructions trapped in a virtual machine
+PASS | Virtualization levels | rank #5
+       query: at which levels can virtualization be implemented
+PASS | VMP as bin packing | rank #2
+       query: why is virtual machine placement np hard
+FAIL | Server consolidation | not found
+       query: packing vms onto fewer servers to save energy
+       top results:
+         #1 05_CC-Revision-Notes_VMP-VM-Placement.pdf pages 6-6 | unknown | score=0.395
+         #2 05_CC-Revision-Notes_VMP-VM-Placement.pdf pages 3-3 | unknown | score=0.399
+         #3 03_CC-MidSem-PYQ-Solved-and-Probable.pdf pages 23-23 | **Q2(c) List and explain the advantages and disadvantages of virtualization. [2 marks]** | score=0.398
+PASS | Data center power | rank #1
+       query: economic and environmental impact of data center energy use
+FAIL | DS design challenges | not found
+       query: challenges in designing a distributed system
+       top results:
+         #1 ds06_synchronization.pdf pages 2-2 | Course/Slides Credits | score=0.466
+         #2 ds06_synchronization.pdf pages 42-42 | Mutual Exclusion within Distributed Systems | score=0.485
+         #3 03_CC-MidSem-PYQ-Solved-and-Probable.pdf pages 39-39 | **Deck 1 — distributed systems** | score=0.426
+PASS | Time value of money | rank #1
+       query: why is money today worth more than money tomorrow
+PASS | Price elasticity | rank #1
+       query: how sensitive is quantity demanded to a price change
+PASS | Indifference curve | rank #2
+       query: curves showing combinations of goods with equal satisfaction
+PASS | Present worth | rank #1
+       query: comparing alternatives by present worth and capitalized cost
+PASS | Spiral model | rank #1
+       query: risk driven software process model with iterations
+PASS | Coupling and cohesion | rank #1
+       query: module coupling versus cohesion in software design
+
+Mode: hybrid
+PASS | Four packet delays | rank #1
+       query: what delays does a packet face on each hop of a path
+PASS | Window to fill the pipe | rank #1
+       query: how large must the sender window be to keep the link busy
+PASS | GBN vs SR with a loss | rank #1
+       query: go back n versus selective repeat when one frame is lost
+PASS | UDP header | rank #3
+       query: what fields are in the udp header
+PASS | TCP congestion control | rank #1
+       query: how does tcp grow its window during slow start
+PASS | SCTP | rank #1
+       query: what does sctp add over tcp, like multihoming
+PASS | AODV route discovery | rank #1
+       query: how does aodv find a route using route requests
+PASS | DSDV | rank #2
+       query: proactive distance vector routing for mobile ad hoc networks
+PASS | Bellman-Ford in DV | rank #3
+       query: which equation do distance vector routers use to update costs
+PASS | OSPF hierarchy | rank #1
+       query: why does ospf split the network into areas
+PASS | Count to infinity | rank #5
+       query: routing loops where costs keep increasing in distance vector
+PASS | ICMP | rank #1
+       query: what is icmp used for
+PASS | BGP inter-AS | rank #1
+       query: how do autonomous systems exchange reachability with bgp
+PASS | Similarity caching | rank #1
+       query: serving approximate matches from caches across a network
+PASS | Token pattern lexeme | rank #1
+       query: difference between a token, a pattern and a lexeme
+PASS | Input buffering | rank #1
+       query: why does the lexer use sentinels at the end of buffers
+PASS | Bootstrapping | rank #1
+       query: building a compiler for a new machine with t diagrams
+PASS | Compiler vs interpreter | rank #1
+       query: how is a compiler different from an interpreter
+PASS | Passes vs phases | rank #1
+       query: what is the difference between a pass and a phase of compilation
+PASS | FA cannot count | rank #1
+       query: why can a finite automaton not count
+PASS | Left recursion | rank #1
+       query: how to remove left recursion from a grammar
+PASS | FIRST and FOLLOW | rank #1
+       query: computing first and follow sets for an ll(1) parser
+PASS | Regular definitions | rank #1
+       query: write regular definitions for identifiers and numbers
+PASS | Para vs full virtualization | rank #1
+       query: para virtualization compared with full virtualization
+PASS | Privileged instructions | rank #1
+       query: how are privileged instructions trapped in a virtual machine
+PASS | Virtualization levels | rank #1
+       query: at which levels can virtualization be implemented
+PASS | VMP as bin packing | rank #1
+       query: why is virtual machine placement np hard
+FAIL | Server consolidation | not found
+       query: packing vms onto fewer servers to save energy
+       top results:
+         #1 03_CC-MidSem-PYQ-Solved-and-Probable.pdf pages 23-23 | **Q2(c) List and explain the advantages and disadvantages of virtualization. [2 marks]** | score=0.498
+         #2 05_CC-Revision-Notes_VMP-VM-Placement.pdf pages 3-3 | unknown | score=0.498
+         #3 05_CC-Revision-Notes_VMP-VM-Placement.pdf pages 8-8 | Energy / SLA (slide 24): | score=0.480
+PASS | Data center power | rank #1
+       query: economic and environmental impact of data center energy use
+PASS | DS design challenges | rank #4
+       query: challenges in designing a distributed system
+PASS | Time value of money | rank #1
+       query: why is money today worth more than money tomorrow
+PASS | Price elasticity | rank #1
+       query: how sensitive is quantity demanded to a price change
+PASS | Indifference curve | rank #1
+       query: curves showing combinations of goods with equal satisfaction
+PASS | Present worth | rank #1
+       query: comparing alternatives by present worth and capitalized cost
+PASS | Spiral model | rank #2
+       query: risk driven software process model with iterations
+PASS | Coupling and cohesion | rank #1
+       query: module coupling versus cohesion in software design
+
+Mode: hybrid_mmr
+PASS | Four packet delays | rank #1
+       query: what delays does a packet face on each hop of a path
+PASS | Window to fill the pipe | rank #1
+       query: how large must the sender window be to keep the link busy
+PASS | GBN vs SR with a loss | rank #1
+       query: go back n versus selective repeat when one frame is lost
+PASS | UDP header | rank #3
+       query: what fields are in the udp header
+PASS | TCP congestion control | rank #1
+       query: how does tcp grow its window during slow start
+PASS | SCTP | rank #1
+       query: what does sctp add over tcp, like multihoming
+PASS | AODV route discovery | rank #1
+       query: how does aodv find a route using route requests
+PASS | DSDV | rank #2
+       query: proactive distance vector routing for mobile ad hoc networks
+PASS | Bellman-Ford in DV | rank #2
+       query: which equation do distance vector routers use to update costs
+PASS | OSPF hierarchy | rank #1
+       query: why does ospf split the network into areas
+PASS | Count to infinity | rank #4
+       query: routing loops where costs keep increasing in distance vector
+PASS | ICMP | rank #1
+       query: what is icmp used for
+PASS | BGP inter-AS | rank #1
+       query: how do autonomous systems exchange reachability with bgp
+PASS | Similarity caching | rank #1
+       query: serving approximate matches from caches across a network
+PASS | Token pattern lexeme | rank #1
+       query: difference between a token, a pattern and a lexeme
+PASS | Input buffering | rank #1
+       query: why does the lexer use sentinels at the end of buffers
+PASS | Bootstrapping | rank #1
+       query: building a compiler for a new machine with t diagrams
+PASS | Compiler vs interpreter | rank #1
+       query: how is a compiler different from an interpreter
+PASS | Passes vs phases | rank #1
+       query: what is the difference between a pass and a phase of compilation
+PASS | FA cannot count | rank #1
+       query: why can a finite automaton not count
+PASS | Left recursion | rank #1
+       query: how to remove left recursion from a grammar
+PASS | FIRST and FOLLOW | rank #1
+       query: computing first and follow sets for an ll(1) parser
+PASS | Regular definitions | rank #1
+       query: write regular definitions for identifiers and numbers
+PASS | Para vs full virtualization | rank #1
+       query: para virtualization compared with full virtualization
+PASS | Privileged instructions | rank #1
+       query: how are privileged instructions trapped in a virtual machine
+PASS | Virtualization levels | rank #1
+       query: at which levels can virtualization be implemented
+PASS | VMP as bin packing | rank #1
+       query: why is virtual machine placement np hard
+PASS | Server consolidation | rank #5
+       query: packing vms onto fewer servers to save energy
+PASS | Data center power | rank #1
+       query: economic and environmental impact of data center energy use
+PASS | DS design challenges | rank #2
+       query: challenges in designing a distributed system
+PASS | Time value of money | rank #1
+       query: why is money today worth more than money tomorrow
+PASS | Price elasticity | rank #1
+       query: how sensitive is quantity demanded to a price change
+PASS | Indifference curve | rank #1
+       query: curves showing combinations of goods with equal satisfaction
+PASS | Present worth | rank #1
+       query: comparing alternatives by present worth and capitalized cost
+PASS | Spiral model | rank #2
+       query: risk driven software process model with iterations
+PASS | Coupling and cohesion | rank #1
+       query: module coupling versus cohesion in software design
