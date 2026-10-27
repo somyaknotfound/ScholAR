@@ -1,0 +1,11 @@
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+
+backend/data/
+frontend/dist/
+frontend/node_modules/
+docs/scholAR-interview-handbook.*
+docs/data/final_code/

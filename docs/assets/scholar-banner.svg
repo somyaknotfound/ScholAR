@@ -1,0 +1,58 @@
+<svg width="1200" height="360" viewBox="0 0 1200 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">scholAR</title>
+  <desc id="desc">A banner for scholAR, a scholastic Augmented Retrieval and cited RAG system.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="0.55" stop-color="#172554"/>
+      <stop offset="1" stop-color="#312E81"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="250" y1="55" x2="1030" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38BDF8"/>
+      <stop offset="0.55" stop-color="#A78BFA"/>
+      <stop offset="1" stop-color="#F472B6"/>
+    </linearGradient>
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="18" result="blur"/>
+      <feColorMatrix in="blur" type="matrix" values="0 0 0 0 0.45 0 0 0 0 0.62 0 0 0 0 1 0 0 0 0.35 0"/>
+      <feBlend in2="SourceGraphic" mode="screen"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="360" rx="32" fill="url(#bg)"/>
+  <circle cx="1000" cy="60" r="150" fill="#7C3AED" opacity="0.22"/>
+  <circle cx="190" cy="320" r="180" fill="#0284C7" opacity="0.18"/>
+  <path d="M60 292C210 205 310 282 440 194C570 106 675 92 815 144C955 196 1036 142 1140 74" stroke="url(#accent)" stroke-width="4" opacity="0.55" filter="url(#softGlow)"/>
+
+  <g transform="translate(86 72)">
+    <rect x="0" y="0" width="142" height="178" rx="18" fill="#E0F2FE" opacity="0.95"/>
+    <rect x="22" y="34" width="98" height="10" rx="5" fill="#2563EB" opacity="0.75"/>
+    <rect x="22" y="62" width="72" height="8" rx="4" fill="#475569" opacity="0.55"/>
+    <rect x="22" y="84" width="96" height="8" rx="4" fill="#475569" opacity="0.4"/>
+    <rect x="22" y="106" width="82" height="8" rx="4" fill="#475569" opacity="0.4"/>
+    <path d="M95 139L123 167" stroke="#0F172A" stroke-width="10" stroke-linecap="round"/>
+    <circle cx="77" cy="121" r="34" fill="none" stroke="#0F172A" stroke-width="11"/>
+    <circle cx="77" cy="121" r="16" fill="#38BDF8" opacity="0.95"/>
+  </g>
+
+  <g transform="translate(285 92)">
+    <text x="0" y="64" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="72" font-weight="800" fill="#F8FAFC">scholAR</text>
+    <text x="4" y="112" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="26" font-weight="500" fill="#CBD5E1">Scholastic Augmented Retrieval for trustworthy study resources</text>
+    <g transform="translate(4 150)">
+      <rect x="0" y="0" width="132" height="36" rx="18" fill="#0EA5E9" opacity="0.22" stroke="#38BDF8"/>
+      <text x="21" y="24" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#BAE6FD">Hybrid Search</text>
+      <rect x="152" y="0" width="126" height="36" rx="18" fill="#8B5CF6" opacity="0.22" stroke="#A78BFA"/>
+      <text x="174" y="24" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#DDD6FE">Citations</text>
+      <rect x="298" y="0" width="142" height="36" rx="18" fill="#EC4899" opacity="0.20" stroke="#F472B6"/>
+      <text x="318" y="24" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="15" font-weight="700" fill="#FBCFE8">Credibility</text>
+    </g>
+  </g>
+
+  <g opacity="0.32">
+    <circle cx="1005" cy="245" r="5" fill="#E0F2FE"/>
+    <circle cx="1058" cy="205" r="4" fill="#E0F2FE"/>
+    <circle cx="1102" cy="256" r="6" fill="#E0F2FE"/>
+    <line x1="1005" y1="245" x2="1058" y2="205" stroke="#E0F2FE" stroke-width="2"/>
+    <line x1="1058" y1="205" x2="1102" y2="256" stroke="#E0F2FE" stroke-width="2"/>
+  </g>
+</svg>

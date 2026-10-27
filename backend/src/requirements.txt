@@ -1,0 +1,13 @@
+pymupdf
+pymupdf4llm
+pytesseract
+Pillow
+langchain-text-splitters
+chromadb
+sentence-transformers
+google-genai
+groq
+fastapi
+uvicorn
+python-multipart
+psycopg[binary]
